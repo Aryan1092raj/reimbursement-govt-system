@@ -102,3 +102,40 @@ demonstrating system thinking, governance design, and accountability mechanisms.
 
 
 (Planned) Deployed using GitHub Pages and Cloud Run.
+
+---
+
+## 🚀 MVP (Live Demo)
+
+The MVP is a lightweight web demonstration explaining the problem, solution, and workflow of the system.
+
+🔗 Live MVP Link:  
+https://aryan1092raj.github.io/reimbursement-govt-system/
+
+---
+
+## 🧠 System Design & Domain Model
+
+The core of this project is a strong governance-first design focusing on:
+- SLA-enforced reimbursement processing
+- Time-based escalation
+- Immutable audit logs
+- Clear accountability across departments
+
+Detailed domain model and entities are documented here:  
+📄 `docs/domain-model.md`
+
+---
+
+## 🛠️ Tech Stack (Current)
+
+- Frontend: HTML, CSS (MVP)
+- Backend (Design-level): Node.js (logic stubs)
+- Architecture: Domain-driven design
+- Hosting: GitHub Pages
+
+---
+
+## 📌 Project Status
+
+This is an early-stage hackathon MVP focused on **system design, accountability logic, and feasibility**, rather than full production deployment.
