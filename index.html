@@ -1,40 +1,72 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Campus Reimbursement Accountability System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      line-height: 1.6;
+    }
+    h1 {
+      margin-bottom: 10px;
+    }
+    .box {
+      border: 1px solid #ccc;
+      padding: 20px;
+      margin-top: 20px;
+      max-width: 500px;
+    }
+    button {
+      margin-top: 10px;
+      padding: 8px 14px;
+      cursor: pointer;
+    }
+    .status {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
-  <h1>Campus Reimbursement Accountability System</h1>
 
-  <p>
-    This MVP demonstrates an SLA-driven governance system for campus reimbursements.
-  </p>
+<h1>Campus Reimbursement Accountability System</h1>
+<p>This MVP simulates how reimbursement claims are tracked using SLA enforcement and escalation.</p>
 
-  <h2>Problem</h2>
-  <p>
-    Reimbursements in campuses are delayed due to lack of accountability,
-    unclear ownership, and no escalation.
-  </p>
+<div class="box">
+  <h2>Submit Reimbursement Claim</h2>
 
-  <h2>Solution</h2>
-  <ul>
-    <li>Every claim has an SLA</li>
-    <li>Time is tracked server-side</li>
-    <li>Automatic escalation on delays</li>
-    <li>Immutable audit logs</li>
-  </ul>
+  <label>Claim Amount:</label><br>
+  <input type="number" id="amount" placeholder="Enter amount"><br><br>
 
-  <h2>Flow</h2>
-  <ol>
-    <li>Student submits reimbursement claim</li>
-    <li>SLA clock starts</li>
-    <li>Approver reviews claim</li>
-    <li>Escalation happens if delayed</li>
-  </ol>
+  <label>Department:</label><br>
+  <select id="department">
+    <option>Computer Science</option>
+    <option>Mechanical</option>
+    <option>Electrical</option>
+  </select><br><br>
 
-  <h2>Status</h2>
-  <p>
-    This is an early-stage MVP focused on governance logic and system design.
-  </p>
+  <button onclick="submitClaim()">Submit Claim</button>
+
+  <div class="status" id="status"></div>
+  <div id="sla"></div>
+
+  <button onclick="simulateDelay()">Simulate Delay (Escalate)</button>
+</div>
+
+<script>
+  function submitClaim() {
+    document.getElementById("status").innerText = "Status: SUBMITTED";
+    document.getElementById("sla").innerText = "SLA: Must be approved within 7 days";
+  }
+
+  function simulateDelay() {
+    document.getElementById("status").innerText = "Status: ESCALATED";
+    document.getElementById("sla").innerText =
+      "Escalated to Department Head due to SLA breach";
+  }
+</script>
+
 </body>
 </html>
