@@ -1,28 +1,104 @@
-You are building a production-grade CAMPUS REIMBURSEMENT ACCOUNTABILITY SYSTEM.
+# Campus Reimbursement Accountability System
 
-Core objective:
-Enforce time-bound reimbursements through SLA tracking, escalation, and transparency.
+This project addresses reimbursement delays in college campuses by focusing on
+accountability, transparency, and SLA enforcement.
 
-Primary principles:
-- Every reimbursement must have a responsible role and department
-- Every reimbursement must have an SLA
-- Time cannot be paused or reset manually
-- Delays must be visible and measurable
-- Escalations must be automatic and logged
-- Audit logs are immutable
+Unlike traditional finance or ERP systems, this platform does not handle
+payments. Instead, it ensures that reimbursement requests are processed within
+defined timelines and that delays are clearly visible and escalated.
 
-Target users:
-- Student (claimant)
-- Department Approver
-- Accounts Officer
-- Escalation Authority
-- Super Admin (oversight only)
+---
 
-Constraints:
-- No payment disbursement
-- No ERP replacement
-- No manual SLA override
-- No UI-driven truth
-- Server-side timestamps only
+## Problem Statement
 
-This system is designed for realism, governance transparency, and measurable administrative impact.
+In many campuses:
+- Reimbursements take weeks or months
+- There are no enforced timelines (SLAs)
+- Students have no visibility into delays
+- Responsibility is unclear
+- Delays go untracked and unresolved
+
+This results in money being locked, frustration for students, and lack of
+administrative accountability.
+
+---
+
+## Proposed Solution
+
+The Campus Reimbursement Accountability System is a governance-focused platform
+that:
+
+- Attaches a Service Level Agreement (SLA) to every reimbursement claim
+- Tracks time automatically on the server
+- Detects SLA breaches without manual intervention
+- Escalates delayed claims automatically
+- Maintains immutable audit logs for all actions
+
+This system is designed to improve transparency and accountability rather than
+process payments.
+
+---
+
+## MVP Overview
+
+This repository contains an early-stage MVP built for hackathon submission.  
+The focus is on system design, core logic, and governance flow.
+
+### Included in the MVP:
+- Domain model defining all core entities and rules
+- Backend skeleton using Node.js
+- SLA evaluation and escalation logic (stub implementation)
+- Immutable audit logging structure
+- Simple MVP page demonstrating system flow
+
+---
+
+## Project Structure
+
+
+---
+
+## Technology Stack
+
+### Backend & Infrastructure
+- Node.js
+- Firebase Authentication
+- Firebase Firestore
+- Google Cloud Functions
+- Google Cloud Run
+
+### Analytics & Visualization
+- Google Looker Studio
+
+### AI & Automation
+- Google Vertex AI
+- Gemini API
+- Document AI
+
+---
+
+## Deployment Status
+
+- MVP page deployed using GitHub Pages
+- Backend structure prepared for Cloud deployment
+- Business logic and UI planned for future iterations
+
+---
+
+## Use Case
+
+The system enables administrators to answer critical questions such as:
+- Which departments delay reimbursements the most?
+- How often are SLAs breached?
+- How much money is stuck due to delays?
+- What happens automatically when deadlines are missed?
+
+---
+
+## Hackathon Context
+
+This project was developed as part of TechSprint hackathon submission and focuses on
+demonstrating system thinking, governance design, and accountability mechanisms.
+
+
+(Planned) Deployed using GitHub Pages and Cloud Run.
