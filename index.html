@@ -1,71 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Campus Reimbursement Accountability System</title>
+  <meta charset="UTF-8" />
+  <title>Campus Reimbursement Accountability – MVP</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 40px;
-      line-height: 1.6;
-    }
-    h1 {
-      margin-bottom: 10px;
-    }
-    .box {
-      border: 1px solid #ccc;
+      background: #f4f6f8;
+      margin: 0;
       padding: 20px;
-      margin-top: 20px;
-      max-width: 500px;
     }
-    button {
-      margin-top: 10px;
-      padding: 8px 14px;
-      cursor: pointer;
+    h1, h2 {
+      color: #1a237e;
+    }
+    .card {
+      background: white;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
     .status {
       font-weight: bold;
-      margin-top: 10px;
+    }
+    .breach {
+      color: red;
+    }
+    .ok {
+      color: green;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    select, button {
+      padding: 6px;
+      margin-top: 5px;
     }
   </style>
 </head>
 <body>
 
-<h1>Campus Reimbursement Accountability System</h1>
-<p>This MVP simulates how reimbursement claims are tracked using SLA enforcement and escalation.</p>
+<h1>Campus Reimbursement Accountability System – MVP</h1>
 
-<div class="box">
-  <h2>Submit Reimbursement Claim</h2>
-
-  <label>Claim Amount:</label><br>
-  <input type="number" id="amount" placeholder="Enter amount"><br><br>
-
-  <label>Department:</label><br>
-  <select id="department">
-    <option>Computer Science</option>
-    <option>Mechanical</option>
-    <option>Electrical</option>
-  </select><br><br>
-
-  <button onclick="submitClaim()">Submit Claim</button>
-
-  <div class="status" id="status"></div>
-  <div id="sla"></div>
-
-  <button onclick="simulateDelay()">Simulate Delay (Escalate)</button>
+<div class="card">
+  <h2>View As</h2>
+  <select id="roleSelect" onchange="render()">
+    <option value="student">Student</option>
+    <option value="approver">Department Approver</option>
+    <option value="authority">Escalation Authority</option>
+  </select>
 </div>
 
+<div class="card">
+  <h2>Reimbursement Claim</h2>
+  <p><strong>Claim ID:</strong> RC-1023</p>
+  <p><strong>Amount:</strong> ₹8,500</p>
+  <p><strong>Department:</strong> Computer Science</p>
+  <p><strong>Status:</strong> <span id="status" class="status">SUBMITTED</span></p>
+  <p><strong>SLA:</strong> 7 days</p>
+  <p><strong>Elapsed Time:</strong> <span id="time">Day 1</span></p>
+</div>
+
+<div class="card">
+  <h2>SLA Clock</h2>
+  <button onclick="advanceDay()">Advance Day</button>
+  <p id="slaMessage" class="ok">SLA within limits.</p>
+</div>
+
+<div class="card">
+  <h2>Audit Log (Immutable)</h2>
+  <ul id="auditLog">
+    <li>[Day 0] Claim submitted by Student</li>
+    <li>[Day 0] SLA clock started (7 days)</li>
+  </ul>
+</div>
+
+<div class="card" id="roleView"></div>
+
 <script>
-  function submitClaim() {
-    document.getElementById("status").innerText = "Status: SUBMITTED";
-    document.getElementById("sla").innerText = "SLA: Must be approved within 7 days";
+  let day = 1;
+  let status = "SUBMITTED";
+  let escalated = false;
+
+  function advanceDay() {
+    day++;
+    document.getElementById("time").innerText = "Day " + day;
+
+    if (day <= 7) {
+      document.getElementById("slaMessage").innerText = "SLA within limits.";
+      document.getElementById("slaMessage").className = "ok";
+    }
+
+    if (day > 7 && !escalated) {
+      status = "ESCALATED";
+      escalated = true;
+      document.getElementById("status").innerText = status;
+      document.getElementById("status").className = "breach";
+      document.getElementById("slaMessage").innerText = "SLA BREACHED – Escalation triggered!";
+      document.getElementById("slaMessage").className = "breach";
+
+      const log = document.getElementById("auditLog");
+      log.innerHTML += "<li>[Day 8] SLA breached automatically</li>";
+      log.innerHTML += "<li>[Day 8] Escalated to Escalation Authority</li>";
+    }
+
+    render();
   }
 
-  function simulateDelay() {
-    document.getElementById("status").innerText = "Status: ESCALATED";
-    document.getElementById("sla").innerText =
-      "Escalated to Department Head due to SLA breach";
+  function render() {
+    const role = document.getElementById("roleSelect").value;
+    const view = document.getElementById("roleView");
+
+    if (role === "student") {
+      view.innerHTML = `
+        <h2>Student View</h2>
+        <p>You can track claim status, SLA countdown, and escalations.</p>
+      `;
+    }
+
+    if (role === "approver") {
+      view.innerHTML = `
+        <h2>Department Approver View</h2>
+        <p>Claims prioritized by SLA urgency.</p>
+        <p><strong>RC-1023:</strong> ${status}</p>
+      `;
+    }
+
+    if (role === "authority") {
+      view.innerHTML = `
+        <h2>Escalation Authority View</h2>
+        <p>Automatically escalated claims appear here.</p>
+        <p><strong>RC-1023:</strong> ${escalated ? "Requires intervention" : "No escalations yet"}</p>
+      `;
+    }
   }
+
+  render();
 </script>
 
 </body>
