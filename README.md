@@ -123,6 +123,23 @@ Role switching is part of the demo to showcase governance behavior.
 
 ---
 
+## MVP Scope
+
+This project is an MVP focused on reimbursement governance and accountability.
+
+### Included
+- Claim submission
+- Role-based review workflow
+- SLA visibility
+- Immutable audit logging
+- Live frontend connected to Firestore
+
+### Not Included
+- Payment processing
+- Bank integration
+- Automated notifications
+- Authentication / IAM
+
 ## Key Features
 
 * Full claim lifecycle visibility
