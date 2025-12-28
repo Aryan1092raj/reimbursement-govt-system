@@ -156,15 +156,20 @@ function App() {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100vh', backgroundColor: '#f5f7fb' }}>
-      <header style={{ padding: '1.25rem 2rem', borderBottom: '1px solid #e2e8f0', backgroundColor: '#ffffff', boxShadow: '0 1px 3px rgba(0,0,0,0.05)' }}>
-        <h1 style={{ margin: 0, fontSize: '1.5rem', fontWeight: '600', color: '#1a202c' }}>Reimbursement Governance System</h1>
-        <div style={{ marginTop: '0.75rem', display: 'flex', alignItems: 'center' }}>
-          <label style={{ marginRight: '0.75rem', fontSize: '0.9rem', fontWeight: '500', color: '#4a5568' }}>Active Authority:</label>
-          <select value={currentRole} onChange={(e) => setCurrentRole(e.target.value)} style={{ padding: '0.4rem 0.6rem', fontSize: '0.9rem', border: '1px solid #cbd5e0', borderRadius: '4px', backgroundColor: 'white' }}>
-            {Object.values(Roles).map(role => (
-              <option key={role} value={role}>{role}</option>
-            ))}
-          </select>
+      <header style={{ padding: '0.9rem 2rem', borderBottom: 'none', backgroundColor: '#1976d2', color: '#ffffff', boxShadow: '0 2px 6px rgba(0,0,0,0.15)' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <div>
+            <h1 style={{ margin: 0, fontSize: '1.45rem', fontWeight: 700, letterSpacing: '0.2px' }}>Reimbursement Governance System</h1>
+            <div style={{ marginTop: '0.25rem', fontSize: '0.85rem', opacity: 0.9 }}>Governance, Accountability, and SLA Tracking</div>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <label style={{ marginRight: '0.6rem', fontSize: '0.85rem', fontWeight: 600, color: 'rgba(255,255,255,0.95)' }}>Active Authority:</label>
+            <select value={currentRole} onChange={(e) => setCurrentRole(e.target.value)} style={{ padding: '0.45rem 0.65rem', fontSize: '0.9rem', border: '1px solid rgba(255,255,255,0.6)', borderRadius: '6px', backgroundColor: '#ffffff', color: '#1a202c' }}>
+              {Object.values(Roles).map(role => (
+                <option key={role} value={role}>{role}</option>
+              ))}
+            </select>
+          </div>
         </div>
       </header>
 
