@@ -1,0 +1,235 @@
+# =============================================================================
+# SECURITY - NEVER COMMIT THESE FILES
+# =============================================================================
+
+# Environment variables with secrets
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+*.env
+
+# Firebase Admin SDK credentials (CRITICAL - NEVER COMMIT)
+*firebase-adminsdk*.json
+*serviceAccount*.json
+serviceAccountKey.json
+
+# Firebase configuration files that may contain keys
+.firebaserc
+
+# API keys and secrets
+secrets/
+*.key
+*.pem
+*.p12
+*.pfx
+
+# =============================================================================
+# DEPENDENCIES
+# =============================================================================
+
+# Node modules
+node_modules/
+jspm_packages/
+
+# Package manager lock files (optional - remove if you want to commit them)
+# npm
+package-lock.json
+
+# Yarn
+yarn.lock
+.yarn/
+.yarn-integrity
+
+# PNPM
+pnpm-lock.yaml
+
+# =============================================================================
+# BUILD OUTPUTS
+# =============================================================================
+
+# Production builds
+dist/
+build/
+dist-ssr/
+out/
+
+# Compiled JavaScript from TypeScript
+*.js.map
+*.d.ts.map
+
+# =============================================================================
+# LOGS & TEMPORARY FILES
+# =============================================================================
+
+# Log files
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+*.local
+
+# =============================================================================
+# EDITOR & IDE
+# =============================================================================
+
+# VS Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# =============================================================================
+# OPERATING SYSTEM FILES
+# =============================================================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+.directory
+.Trash-*
+.nfs*
+
+# =============================================================================
+# TESTING & COVERAGE
+# =============================================================================
+
+# Test coverage
+coverage/
+*.lcov
+.nyc_output/
+.cache/
+
+# Jest
+jest_*
+
+# =============================================================================
+# MISC
+# =============================================================================
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional stylelint cache
+.stylelintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional REPL history
+.node_repl_history
+
+# Firebase cache
+.firebase/
+
+# Serverless directories
+.serverless/
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# TernJS port file
+.tern-port
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# =============================================================================
+# PROJECT-SPECIFIC
+# =============================================================================
+
+# Backend build artifacts
+backend/dist/
+
+# Functions build artifacts
+functions/lib/
+
+# Database backups (if any)
+*.sql
+*.sqlite
+*.db
+backups/
